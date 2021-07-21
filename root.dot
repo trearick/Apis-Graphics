@@ -1,0 +1,80 @@
+digraph pastafarianism {
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+root [fillcolor=cyan, fontcolor=black, fontsize=9, label=root, shape=octagon, style=filled];
+proceed [fillcolor=orange, fontcolor=black, fontsize=9, label=proceed, shape=box, style=filled];
+root -> proceed;
+preflight [fillcolor=gray, fontcolor=black, fontsize=9, label=preflight, shape=ellipse, style=filled];
+proceed -> preflight;
+eternal_guard [fillcolor=ghostwhite, fontcolor=black, fontsize=9, label=eternal_guard, shape=ellipse, style=filled];
+proceed -> eternal_guard;
+mission [fillcolor=orange, fontcolor=black, fontsize=9, label=mission, shape=box, style=filled];
+eternal_guard -> mission;
+takeoff [fillcolor=gray, fontcolor=black, fontsize=9, label=takeoff, shape=ellipse, style=filled];
+mission -> takeoff;
+waypoint1 [fillcolor=gray, fontcolor=black, fontsize=9, label=waypoint1, shape=ellipse, style=filled];
+mission -> waypoint1;
+waypoint2 [fillcolor=gray, fontcolor=black, fontsize=9, label=waypoint2, shape=ellipse, style=filled];
+mission -> waypoint2;
+land [fillcolor=gray, fontcolor=black, fontsize=9, label=land, shape=ellipse, style=filled];
+mission -> land;
+subgraph  {
+label=children_of_mission;
+rank=same;
+takeoff [fillcolor=gray, fontcolor=black, fontsize=9, label=takeoff, shape=ellipse, style=filled];
+waypoint1 [fillcolor=gray, fontcolor=black, fontsize=9, label=waypoint1, shape=ellipse, style=filled];
+waypoint2 [fillcolor=gray, fontcolor=black, fontsize=9, label=waypoint2, shape=ellipse, style=filled];
+land [fillcolor=gray, fontcolor=black, fontsize=9, label=land, shape=ellipse, style=filled];
+}
+
+subgraph  {
+label=children_of_proceed;
+rank=same;
+preflight [fillcolor=gray, fontcolor=black, fontsize=9, label=preflight, shape=ellipse, style=filled];
+eternal_guard [fillcolor=ghostwhite, fontcolor=black, fontsize=9, label=eternal_guard, shape=ellipse, style=filled];
+}
+
+abort [fillcolor=cyan, fontcolor=black, fontsize=9, label=abort, shape=octagon, style=filled];
+root -> abort;
+"Attempt Landing" [fillcolor=gray, fontcolor=black, fontsize=9, label="Attempt Landing", shape=ellipse, style=filled];
+abort -> "Attempt Landing";
+Fullstop [fillcolor=gray, fontcolor=black, fontsize=9, label=Fullstop, shape=ellipse, style=filled];
+abort -> Fullstop;
+subgraph  {
+label=children_of_abort;
+rank=same;
+"Attempt Landing" [fillcolor=gray, fontcolor=black, fontsize=9, label="Attempt Landing", shape=ellipse, style=filled];
+Fullstop [fillcolor=gray, fontcolor=black, fontsize=9, label=Fullstop, shape=ellipse, style=filled];
+}
+
+subgraph  {
+label=children_of_root;
+rank=same;
+proceed [fillcolor=orange, fontcolor=black, fontsize=9, label=proceed, shape=box, style=filled];
+abort [fillcolor=cyan, fontcolor=black, fontsize=9, label=abort, shape=octagon, style=filled];
+}
+
+Writer [color=blue, fillcolor=gray, fontcolor=blue, fontsize=7, label=Writer, shape=ellipse, style=filled];
+"/system_status" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/system_status: -", shape=box, style=filled, width=0];
+"/system_status" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/system_status"  [color=blue, constraint=False];
+"/last_heartbeat" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/last_heartbeat: -", shape=box, style=filled, width=0];
+"/last_heartbeat" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/last_heartbeat"  [color=blue, constraint=False];
+"/armed" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/armed: -", shape=box, style=filled, width=0];
+"/armed" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/armed"  [color=blue, constraint=False];
+"/mode" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/mode: -", shape=box, style=filled, width=0];
+"/mode" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/mode"  [color=blue, constraint=False];
+"/is_armable" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/is_armable: -", shape=box, style=filled, width=0];
+"/is_armable" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/is_armable"  [color=blue, constraint=False];
+"/voltage" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/voltage: -", shape=box, style=filled, width=0];
+"/voltage" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/voltage"  [color=blue, constraint=False];
+"/offleash" [color=blue, fillcolor=white, fixedsize=False, fontcolor=blue, fontsize=8, height=0, label="/offleash: -", shape=box, style=filled, width=0];
+"/offleash" -> eternal_guard  [color=blue, constraint=False];
+Writer -> "/offleash"  [color=blue, constraint=False];
+}
