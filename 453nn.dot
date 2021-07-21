@@ -1,0 +1,111 @@
+digraph G {
+    rankdir=LR;
+    splines=line;
+    nodesep=".2";
+    edge [comment="Wildcard edge", 
+          arrowhead="vee"];
+    node [color=black, 
+          style=solid, 
+          shape=circle, 
+          label=""];
+    subgraph cluster_0 {
+        color=white;
+        label="";
+        edge [comment="subgraph edge wildcard"];
+        node [color="white", 
+              shape="plaintext"];
+        "x1" [label="Input #1"];
+        "x2" [label="Input #2"];
+        "x3" [label="Input #3"];
+        "x4" [label="Input #4"];
+    }
+
+    subgraph cluster_1 {
+        color=white;
+        label="Input Layer";
+        edge [comment="subgraph edge wildcard"];
+        node [comment="subgraph node wildcard"];
+        "i1";
+        "i2";
+        "i3";
+        "i4";
+    }
+
+    subgraph cluster_2 {
+        color=white;
+        label="Hidden Layer";
+        edge [comment="subgraph edge wildcard"];
+        node [color=black, 
+              style=solid, 
+              shape=circle];
+        "h1";
+        "h2";
+        "h3";
+        "h4";
+        "h5";
+    }
+
+    subgraph cluster_3 {
+        color=white;
+        label="Output Layer";
+        edge [comment="subgraph edge wildcard"];
+        node [comment="subgraph node wildcard"];
+        "o1";
+        "o2";
+        "o3";
+    }
+
+    subgraph cluster_4 {
+        color=white;
+        label="";
+        edge [comment="subgraph edge wildcard"];
+        node [color="white", 
+              shape="plaintext"];
+        "z1" [label="Output #1"];
+        "z2" [label="Output #2"];
+        "z3" [label="Output #3"];
+    }
+
+    "i1" -> "h1";
+    "i1" -> "h2";
+    "i1" -> "h3";
+    "i1" -> "h4";
+    "i1" -> "h5";
+    "i2" -> "h1";
+    "i2" -> "h2";
+    "i2" -> "h3";
+    "i2" -> "h4";
+    "i2" -> "h5";
+    "i3" -> "h1";
+    "i3" -> "h2";
+    "i3" -> "h3";
+    "i3" -> "h4";
+    "i3" -> "h5";
+    "i4" -> "h1";
+    "i4" -> "h2";
+    "i4" -> "h3";
+    "i4" -> "h4";
+    "i4" -> "h5";
+    "h1" -> "o1";
+    "h1" -> "o2";
+    "h1" -> "o3";
+    "h2" -> "o1";
+    "h2" -> "o2";
+    "h2" -> "o3";
+    "h3" -> "o1";
+    "h3" -> "o2";
+    "h3" -> "o3";
+    "h4" -> "o1";
+    "h4" -> "o2";
+    "h4" -> "o3";
+    "h5" -> "o1";
+    "h5" -> "o2";
+    "h5" -> "o3";
+    "x1" -> "i1";
+    "x2" -> "i2";
+    "x3" -> "i3";
+    "x4" -> "i4";
+    "o1" -> "z1";
+    "o2" -> "z2";
+    "o3" -> "z3";
+}

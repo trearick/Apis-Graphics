@@ -1,0 +1,78 @@
+digraph forage_task {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	forage	[fillcolor=orange, fontcolor=black, fontsize=9, label="Forage", shape=rectangle, style=filled];
+	pollen	[fillcolor=orange, fontcolor=black, fontsize=9, label="Pollen", shape=rectangle, style=filled];
+	nectar	[fillcolor=orange, fontcolor=black, fontsize=9, label="Nectar", shape=rectangle, style=filled];
+	water 	[fillcolor=orange, fontcolor=black, fontsize=9, label="Water", shape=rectangle, style=filled];
+	propolis [fillcolor=orange, fontcolor=black, fontsize=9, label="Propolis", shape=rectangle, style=filled];
+	forage->pollen
+	forage->nectar
+	forage->water
+	forage->propolis
+
+	find [fillcolor=orange, fontcolor=black, fontsize=9, label="Find Nectar", shape=rectangle, style=filled];
+	gather [fillcolor=orange, fontcolor=black, fontsize=9, label="Gather Nectar", shape=rectangle, style=filled];
+	nectar->find
+	nectar->gather
+	
+	white1 [style=invis];
+	white2 [style=invis];
+	find->white1
+	find->white2
+	
+	white3 [style=invis];
+	white4 [style=invis];
+	pollen->white3
+	pollen->white4
+	
+	white5 [style=invis];
+	white6 [style=invis];
+	water->white5
+	water->white6
+	
+	white7 [style=invis];
+	white8 [style=invis];
+	propolis->white7
+	propolis->white8
+	
+	morning		[fillcolor=palegreen, fontcolor=black, fontsize=9, label="Morning?", shape=diamond, style=filled];
+	afternoon	[fillcolor=palegreen, fontcolor=black, fontsize=9, label="Afternoon?", shape=diamond, style=filled];
+	gather->morning
+	gather->afternoon
+	
+	worka [fillcolor=orange, fontcolor=black, fontsize=9, label="Work A Flowers", shape=rectangle, style=filled];
+	workb [fillcolor=orange, fontcolor=black, fontsize=9, label="Work B Flowers", shape=rectangle, style=filled];
+	morning->worka
+	afternoon->workb
+	
+	gathera [fillcolor=orange, fontcolor=black, fontsize=9, label="Gather", shape=rectangle, style=filled];
+	delivera [fillcolor=orange, fontcolor=black, fontsize=9, label="Deliver", shape=rectangle, style=filled];
+	gatherb [fillcolor=orange, fontcolor=black, fontsize=9, label="Gather", shape=rectangle, style=filled];
+	deliverb [fillcolor=orange, fontcolor=black, fontsize=9, label="Deliver", shape=rectangle, style=filled];
+	worka->gathera
+	worka->delivera
+	workb->gatherb
+	workb->deliverb
+	
+	navigate [fillcolor=orange, fontcolor=black, fontsize=9, label="Navigate to Location A", shape=rectangle, style=filled];
+	locate [fillcolor=orange, fontcolor=black, fontsize=9, label="Locate Flower A", shape=rectangle, style=filled];
+	collect [fillcolor=orange, fontcolor=black, fontsize=9, label="Collect from Flower A", shape=rectangle, style=filled];
+	gathera->navigate
+	gathera->locate
+	gathera->collect
+	
+	return [fillcolor=orange, fontcolor=black, fontsize=9, label="Return to Colony", shape=rectangle, style=filled];
+	enter [fillcolor=orange, fontcolor=black, fontsize=9, label="Enter Nest", shape=rectangle, style=filled];
+	findrec [fillcolor=orange, fontcolor=black, fontsize=9, label="Find Nectar Receiver", shape=rectangle, style=filled];
+	pass [fillcolor=orange, fontcolor=black, fontsize=9, label="Pass Nectar to Reciever", shape=rectangle, style=filled];
+	delivera->return
+	delivera->enter
+	delivera->findrec
+	delivera->pass
+}
+	
+	

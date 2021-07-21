@@ -1,0 +1,14 @@
+digraph parallel {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	parallel [fillcolor=orange, fontcolor=black, fontsize=9, label="Parallel", shape=parallelogram, style=filled];
+	task1 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Do This\n On Each Tick", shape=rectangle, style=filled];
+	task2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="And Do This\n On Each Tick", shape=rectangle, style=filled];
+	task3 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="And Do This Also\n On Each Tick", shape=rectangle, style=filled];
+	parallel -> task1
+	parallel -> task2
+	parallel -> task3
+}

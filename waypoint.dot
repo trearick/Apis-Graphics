@@ -1,0 +1,16 @@
+digraph decorator {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	waypoint [fillcolor=orange, fontcolor=black, fontsize=9, label="Waypoint", shape=parallelogram, style=filled];
+	avoidance [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Avoid Collision", shape=rectangle, style=filled];
+	altitude [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Maintain Altitude", shape=rectangle, style=filled];
+	heading [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Maintain Heading", shape=box, style=filled];
+	arrived [fillcolor=palegreen, fontcolor=black, fontsize=9, label="Arrived?", shape=ellipse, style=filled];
+	waypoint -> avoidance
+	waypoint -> altitude
+	waypoint -> heading
+	waypoint -> arrived
+}

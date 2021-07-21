@@ -1,0 +1,14 @@
+digraph selector {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	selector [fillcolor=orange, fontcolor=black, fontsize=9, label=Selector, shape=octagon, style=filled];
+	task1 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Try This Task First", shape=rectangle, style=filled];
+	selector -> task1;
+	task2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="If that failed,\n Try This Task", shape=rectangle, style=filled];
+	selector -> task2;
+	task3 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="If both failed,\n This is Your Last Chance", shape=rectangle, style=filled];
+	selector -> task3;
+}

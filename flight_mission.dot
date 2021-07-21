@@ -1,0 +1,57 @@
+digraph flight_mission {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	mission [fillcolor=orange, fontcolor=black, fontsize=9, label="Flight Mission", shape=octagon, style=filled];
+	proceed [fillcolor=orange, fontcolor=black, fontsize=9, label="Proceed With\n Caution", shape=box, style=filled];
+	abort [fillcolor=orange, fontcolor=black, fontsize=9, label="Soft Abort", shape=rectangle, style=filled];
+	
+	mission->proceed
+	mission->abort
+	mission->allstop2
+
+	preflight [fillcolor=orange, fontcolor=black, fontsize=9, label="Preflight Checks", shape=box, style=filled];
+	monitor [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Monitor System Status", shape=diamond, style=filled];
+	proceed -> preflight;
+	proceed -> monitor
+	
+	armable [fillcolor=palegreen, fontcolor=black, fontsize=9, label="Armable", shape=ellipse, style=filled];
+	arm [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Arm Flight\n Controller", shape=box, style=filled];
+	isArmed [fillcolor=palegreen, fontcolor=black, fontsize=9, label="Is Armed", shape=ellipse, style=filled];
+	
+	preflight->armable
+	preflight->arm
+	preflight->isArmed
+	
+	plan [fillcolor=orange, fontcolor=black, fontsize=9, label="Flight Plan", shape=box, style=filled];
+	monitor->plan
+	
+	takeoff [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Take off", shape=box, style=filled];
+	waypoint1 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Waypoint #1", shape=box, style=filled];
+	waypoint2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Waypoint #2", shape=box, style=filled];
+	waypoint3 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Waypoint #3", shape=box, style=filled];
+	rtl [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Return To Launch", shape=box, style=filled];
+	land [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Land", shape=box, style=filled];
+	allstop [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="All Stop", shape=box, style=filled];
+	
+	plan->takeoff
+	plan->waypoint1
+	plan->waypoint2
+	plan->waypoint3
+	plan->rtl
+	plan->land
+	plan->allstop
+	
+	airborne [fillcolor=palegreen, fontcolor=black, fontsize=9, label="Airborne?", shape=ellipse, style=filled];
+	land2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Land", shape=box, style=filled];
+	allstop2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="All Stop\n(Hard Abort)", shape=box, style=filled];
+	allstop3 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="All Stop", shape=box, style=filled];
+	
+	abort->airborne
+	abort->land2
+	abort->allstop3
+}
+	
+	

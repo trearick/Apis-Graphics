@@ -1,0 +1,39 @@
+digraph ecoli {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	survive [fillcolor=orange, fontcolor=black, fontsize=9, label="Survive", shape=parallelogram, style=filled];
+	eat [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Eat", shape=octagon, style=filled];
+	selfdefense [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Defend Self", shape=octagon, style=filled];
+	reproduce [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Reproduce", shape=box, style=filled];
+	survive -> eat
+	survive -> selfdefense
+	survive -> reproduce
+	
+	foundfood [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Found Food?", shape=diamond, style=filled];
+	chowdown [fillcolor=orange, fontcolor=black, fontsize=9, label="Chow Down", shape=box, style=filled];
+	eat->foundfood
+	foundfood->chowdown
+	
+	closer [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Closer to food?", shape=diamond, style=filled];
+	keepgoing [fillcolor=orange, fontcolor=black, fontsize=9, label="Go Straight", shape=box, style=filled];
+	eat->closer
+	closer->keepgoing
+	
+	tumble [fillcolor=orange, fontcolor=black, fontsize=9, label="Change Direction", shape=box, style=filled];
+	eat->tumble
+	
+	poisoncloser [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Closer to poison?", shape=diamond, style=filled];
+	getouttahere [fillcolor=orange, fontcolor=black, fontsize=9, label="Change Direction", shape=box, style=filled];
+	keepgoing2 [fillcolor=orange, fontcolor=black, fontsize=9, label="Go Straight", shape=box, style=filled];
+	selfdefense->poisoncloser
+	selfdefense->keepgoing2
+	poisoncloser->getouttahere
+	
+	fat [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Getting large?", shape=diamond, style=filled];
+	divide [fillcolor=orange, fontcolor=black, fontsize=9, label="Divide into two", shape=box, style=filled];
+	reproduce->fat
+	fat->divide
+}

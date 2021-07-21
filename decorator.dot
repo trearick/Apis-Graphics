@@ -1,0 +1,22 @@
+digraph decorator {
+	dpi="300"; ratio=auto; size="6,6";
+	graph [fontname="times-roman"];
+	node [fontname="times-roman"];
+	edge [fontname="times-roman"];
+
+	selector [fillcolor=orange, fontcolor=black, fontsize=9, label="Timed Selector", shape=octagon, style=filled];
+	setTimer [fillcolor=palegreen, fontcolor=black, fontsize=9, label="Set Timer", shape=ellipse, style=filled];
+	checkTime1 [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Check Timer", shape=diamond, style=filled];
+	task1 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Try This First", shape=rectangle, style=filled];
+	checkTime2 [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Check Timer", shape=diamond, style=filled];
+	task2 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Then Try This", shape=rectangle, style=filled];
+	checkTime3 [fillcolor=aliceblue, fontcolor=black, fontsize=9, label="Check Timer", shape=diamond, style=filled];
+	task3 [fillcolor=palegoldenrod, fontcolor=black, fontsize=9, label="Try This Last", shape=rectangle, style=filled];
+	selector -> setTimer
+	selector -> checkTime1
+	selector -> checkTime2
+	selector -> checkTime3
+	checkTime1 -> task1
+	checkTime2 -> task2
+	checkTime3 -> task3
+}

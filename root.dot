@@ -1,4 +1,5 @@
 digraph pastafarianism {
+dpi="300"; ratio=auto; size="6,6";
 graph [fontname="times-roman"];
 node [fontname="times-roman"];
 edge [fontname="times-roman"];
